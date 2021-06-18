@@ -5,18 +5,20 @@ class User{
   public $name;
   public $gender;
   public $age;
-  private $creditDate;
-  private $creditNumber;
+  protected $creditDate;
+  public $creditValid;
   private $discount = 0;
   public $studentDiscount= false;
 
-  public function __construct($_name,$_gender,$_age,$_studentDiscount)
+  public function __construct($_name,$_gender,$_age,$_studentDiscount, $_creditDate)
   {
     $this->name = $_name;
     $this->gender = $_gender;
+    $this->creditDate = $_creditDate;
     $this->setAge($_age);
     $this->studentDiscount = $_studentDiscount;
     $this->setDiscount($_age,$_studentDiscount);
+    $this->setCreditDiscount($_creditDate);
   }
 
   public function setAge($_age){
@@ -34,6 +36,14 @@ class User{
       $this->discount = 15;
     }elseif($_age<18){
       $this->discount = 10;
+    }
+  }
+
+  public function setCreditDiscount($_creditDate){
+    if($_creditDate < 2021 ){
+      $this->creditValid = 'scaduta';
+    }else{
+      $this->creditValid = 'accettata';
     }
   }
 }
