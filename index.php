@@ -6,9 +6,9 @@ require_once __DIR__ . '/classes/UserPremium.php';
 
 $prodotto1 = new Product('Forno',120.6, 365412);
 var_dump($prodotto1);
-$user1 = new User('Vittorio','male',17,true,2018);
+$user1 = new User('Vittorio','male',17,true,'05-2021');
 var_dump($user1);
-$user2 = new UserPremium('Gianni', 'male', 17,true,2022);
+$user2 = new UserPremium('Gianni', 'male', 17,true,'07-2021');
 var_dump($user2);
 
 ?>
